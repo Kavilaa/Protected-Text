@@ -9,7 +9,7 @@ export const Note = () => {
   const createNote = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch("/note", {
+      const response = await fetch("http://localhost:3000/note", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -34,7 +34,9 @@ export const Note = () => {
     event.preventDefault();
     try {
       const response = await fetch(
-        `/note-status/${window.location.pathname.substring(1)}`
+        `http://localhost:3000/note-status/${window.location.pathname.substring(
+          1
+        )}`
       );
       if (response.ok) {
         setShowModal(false);

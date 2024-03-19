@@ -1,9 +1,11 @@
 import express from "express";
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
+import cors from "cors";
 import Notes from "./notes.js";
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 
 app.post("/note", async (req, res) => {
@@ -57,7 +59,7 @@ app.get("/note-status/:title", async (req, res) => {
   }
 });
 
-const PORT = 5173;
+const PORT = 3000;
 app.listen(PORT, async () => {
   try {
     await mongoose.connect("mongodb://127.0.0.1:27017/protected-notes");
@@ -66,6 +68,7 @@ app.listen(PORT, async () => {
     db.once("open", () => {
       console.log("Connected to MongoDB");
     });
+    console.log("connected to database");
     console.log("Server is running on port", PORT);
   } catch (error) {
     console.log(error);
