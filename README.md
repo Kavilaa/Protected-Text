@@ -1,5 +1,4 @@
 ```bash
-git clone https://github.com/ixtk/protected-text-starter.git
 
 cd frontend
 npm i
